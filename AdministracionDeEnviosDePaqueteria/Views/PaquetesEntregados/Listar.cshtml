@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AdministracionDeEnviosDePaqueteria.Model.Paquetes>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Detalles</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePersonaEnvia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePersonaRecibe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeRecepcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeEntrega)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePersonaEnvia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePersonaRecibe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeRecepcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeEntrega)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Detalles", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

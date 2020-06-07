@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AdministracionDeEnviosDePaqueteria.Model.Paquetes>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Agregar">Registrar Nuevo Paquete</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePersonaEnvia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePersonaRecibe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeRecepcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePersonaEnvia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePersonaRecibe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeRecepcion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Detalles", "Detalles", new { id = item.Id }) |
+                @Html.ActionLink("Enviar", "Enviar", new { id = item.Id }) |
+                @Html.ActionLink("Perdido", "Perdido", new {  id=item.Id }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

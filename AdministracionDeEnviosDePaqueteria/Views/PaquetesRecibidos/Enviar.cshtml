@@ -1,0 +1,32 @@
+﻿@model AdministracionDeEnviosDePaqueteria.Model.PaqueteEnviado
+
+@{
+    ViewData["Title"] = "Enviar";
+}
+
+<h1>Enviar Paquete</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Enviar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreEmpleadoEncargadoDeEnvio" class="control-label"></label>
+                <input asp-for="NombreEmpleadoEncargadoDeEnvio" class="form-control" />
+                <span asp-validation-for="NombreEmpleadoEncargadoDeEnvio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enviar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listar">Volver A La Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
