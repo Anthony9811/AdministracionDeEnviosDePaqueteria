@@ -55,7 +55,7 @@ namespace AdministracionDeEnviosDePaqueteria
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=PaquetesRecibidos}/{action=Listar}/{id?}");
             });
         }
     }
